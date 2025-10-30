@@ -1,5 +1,52 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 body{
-    background: white;
+    background: green;
+    display: grid;
+    place-items: center;
+}
+
+.card {
+    height: 400px;
+    width: 300px;
+    border-radius: 15px;
+    margin-top: 50px;
+}
+
+h2 {
+    color: red;
+    margin: 10px;
+    font-size: 80px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h2:last-of-type {
+    display: inline-block; 
+    transform: rotate(180deg);
+}
+
+h1 {
+    font-size: 150px;
+    text-align: center;
+    height: 100%;
+    margin: 0;
+    position: relative;
+    top: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    color: red;
+}
+
+button {
+    color: darkred;
+    margin-top: 15px;
+}
+
+input {
+    color: darkred;
+    font-weight: bold;
+}
+
+label {
+    color: white;
 }
