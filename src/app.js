@@ -49,21 +49,38 @@ let button1 = document.getElementById("noTimerButton");
 button1.addEventListener('click', GenerateNewCard);
 
 let button2 = document.getElementById("TimerButton");
-button2.addEventListener('click', setInterval(GenerateNewCard, 10000));
+button2.addEventListener('click', startCardTimer);
 
+function startCardTimer() {
+  setInterval(GenerateNewCard, 10000);
+}
 
 function ResizeCard() {
+    const heightInput = document.getElementById("height");
+    const widthInput = document.getElementById("width");
+    const cardElement = document.querySelector(".card"); 
 
-  let height = document.getElementById("height");
-  let width = document.getElementById("width");
-  let card = document.querySelector(".card");
+    const userHeight = parseInt(heightInput.value);
+    const userWidth = parseInt(widthInput.value);
+    
+    const minHeight = parseInt(heightInput.min); 
+    const maxHeight = parseInt(heightInput.max); 
+    const minWidth = parseInt(widthInput.min);   
+    const maxWidth = parseInt(widthInput.max);   
+        
+        if (userHeight >= minHeight && userHeight <= maxHeight) {
+            cardElement.style.height = userHeight + "px";
+        } else {
+            cardElement.style.height = maxHeight + "px";
+            heightInput.value = maxHeight; 
+        }
 
-  let userHeight = parseInt(height.value);
-  let userWidth = parseInt(width.value);
-
-  card.style.height = userHeight + "px";
-  card.style.width = userWidth + "px";
-
+        if (userWidth >= minWidth && userWidth <= maxWidth) {
+            cardElement.style.width = userWidth + "px";
+        } else {
+            cardElement.style.width = maxWidth + "px";
+            widthInput.value = maxWidth;
+        }
 }
 
 let button3 = document.getElementById("SizeButton");
